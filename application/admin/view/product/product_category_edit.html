@@ -1,0 +1,65 @@
+{include file='public/meta'/}
+<title>修改产品分类</title>
+</head>
+<body>
+<div class="page-container">
+	<form action="{:url('updateCategory')}" method="post" class="form form-horizontal" id="form-user-add" enctype="multipart/form-data">
+	<!--分类id-->
+	<input type="hidden" value="{$cate.id}" name="id">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">
+				<span class="c-red">*</span>
+				分类名称：</label>
+			<div class="formControls col-xs-6 col-sm-6">
+				<input type="text" class="input-text" value="{$cate.cate_name_cn}"  name="cate_name_cn">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">
+				<span class="c-red">*</span>
+				分类英文名称：</label>
+			<div class="formControls col-xs-6 col-sm-6">
+				<input type="text" class="input-text" value="{$cate.cate_name_en}"  name="cate_name_en">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">
+				<span class="c-red">*</span>
+				当前分类级别：</label>
+			<div class="formControls col-xs-6 col-sm-6">
+				{$countPath}
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">分类：</label>
+			<div class="formControls col-xs-6 col-sm-6">
+				<span class="select-box">
+				<select class="select" size="1" name="pid">
+					{if condition="$cate.pid eq 0"}<option value="0" >顶级分类</option>{else/}
+					<option value="{$cate.pid}" >{$parent}</option>
+					{/if}
+					<option value="0" >顶级分类</option>
+					{volist name="cateList" id="vo"}
+					<option value="{$vo.id}" >{$vo.cate_name_cn}</option>
+					{/volist}
+				</select>
+		</span>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-9 col-offset-2">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				
+			</div>
+		</div>
+	</form>
+</div>
+{include file='public/footer'/}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!-- left -->
+
+<div class="left_news">
+    <h2 class="left_h">{$Think.lang.nav_news}</h2>
+    <ul class="left_news">
+        {volist name="news" id="vo"}
+        <li><a href="{:url('news/read',['id'=>$vo.id])}" title="{$vo.title}">{$vo.title}</a></li>
+        {/volist}
+    </ul>
+</div>
+<div class="index_contact">
+    <h2 class="left_h">{$Think.lang.contact_us}</h2>
+    {$system.contact}
+</div>

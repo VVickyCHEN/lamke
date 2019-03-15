@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+{include file='public/header'/}
+  <!-- bxslider -->
+  <div class="flash">
+   <ul class="bxslider">
+    {volist name="ban" id="vo"}
+    <li><a href="{$vo.link}"><img src="__ROOT__/uploads/{$vo.img}" alt="{$vo.name}" /></a></li>
+    {/volist}
+   </ul>
+  </div>
+  <script type="text/javascript"> 
+     $('.bxslider').bxSlider({
+      adaptiveHeight: true,
+      infiniteLoop: true,
+      hideControlOnEnd: true,
+      auto:true
+    });
+</script>
+<!--产品-->
+{if condition="$product"}
+  <div class="container">
+   <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+     <div class="product_index">
+      <div class="product_head" data-move-y="-40px">
+       <h2>{$Think.lang.nav_pro}</h2>
+       <p>PRODUCT DISPLAY</p>
+      </div>
+      <div class="product_list">
+       {volist name="product" id="vo"}
+       <div class="col-sm-4 col-md-3 col-mm-6 product_img" data-move-y="200px">
+        <a href=" {:url('product/read',['id'=>$vo.id])}"><img src="__ROOT__/uploads/{$vo.simg}" class="img-thumbnail" alt="" /></a>
+        <p class="product_title"><a href="{:url('product/read',['id'=>$vo.id])}" title="{$vo.name}">{$vo.name} </a></p>
+       </div>
+       {/volist}
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+{/if}
+  <div class="advantage" style="background-image: url(__STATIC__/Images/57344e66ec33d.jpg);">
+   <div class="advantage_head" data-move-y="-50px">
+    <p>{$Think.lang.advantage}</p>
+    <!--<h2>我们的优势</h2>-->
+   </div>
+   <div class="container advantage_list">
+    <div class="row">
+     <div class="col-sm-6 col-md-6 advantage_col" data-move-y="200px">
+      <div class="col-sm-3 col-md-3">
+       <a href="http://v2.lankecms.comproduct.html" target="_blank"><img src="__STATIC__/Picture/58dccd9f04f1a.png" alt="10年生产设计经验" /></a>
+      </div>
+      <div class="col-sm-9 col-md-9">
+       <h4><a href="http://v2.lankecms.comproduct.html" target="_blank">10年生产设计经验</a></h4>
+       <span>深圳市科技有限公司位于美丽富饶的中国广东省深圳市松岗溪头 工业区，深圳市科技有限公司</span>
+      </div>
+     </div>
+     <div class="col-sm-6 col-md-6 advantage_col" data-move-y="200px">
+      <div class="col-sm-3 col-md-3">
+       <a href="http://v2.lankecms.comAbout-us.html" target="_blank"><img src="__STATIC__/Picture/58dcce28f17d5.png" alt="专业的开发设计团队" /></a>
+      </div>
+      <div class="col-sm-9 col-md-9">
+       <h4><a href="http://v2.lankecms.comAbout-us.html" target="_blank">专业的开发设计团队</a></h4>
+       <span>深圳市科技有限公司位于美丽富饶的中国广东省深圳市松岗溪头 工业区，深圳市科技有限公司</span>
+      </div>
+     </div>
+     <div class="col-sm-6 col-md-6 advantage_col" data-move-y="200px">
+      <div class="col-sm-3 col-md-3">
+       <a href="http://v2.lankecms.comContact-us.html" target="_blank"><img src="__STATIC__/Picture/58dcce4f97f0f.png" alt="强大的产品销售团队​" /></a>
+      </div>
+      <div class="col-sm-9 col-md-9">
+       <h4><a href="http://v2.lankecms.comContact-us.html" target="_blank">强大的产品销售团队​</a></h4>
+       <span>深圳市科技有限公司位于美丽富饶的中国广东省深圳市松岗溪头 工业区，深圳市科技有限公司</span>
+      </div>
+     </div>
+     <div class="col-sm-6 col-md-6 advantage_col" data-move-y="200px">
+      <div class="col-sm-3 col-md-3">
+       <a href="http://v2.lankecms.comContact-us.html" target="_blank"><img src="__STATIC__/Picture/58dcce794024d.png" alt="贴心的售后服务​" /></a>
+      </div>
+      <div class="col-sm-9 col-md-9">
+       <h4><a href="http://v2.lankecms.comContact-us.html" target="_blank">贴心的售后服务​</a></h4>
+       <span>深圳市科技有限公司位于美丽富饶的中国广东省深圳市松岗溪头 工业区，深圳市科技有限公司</span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div id="about_us" class="container about_index">
+   <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+     <div class="about_head" data-move-y="50px">
+      <h2>ABOUT US</h2>
+      <span>{$Think.lang.nav_brief}</span>
+     </div>
+     <div class="about_content" data-move-y="-80px">
+      <p><img align="left" src="__STATIC__/Picture/about.png" alt="公司简介" /></p>
+      <p class="about_contents">{$system.profile}...</p>
+      <p></p>
+      <a href="{:url('index/system',['nav'=>'about'])}" class="btn btn-info" role="button">{$Think.lang.details}</a>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!--<div class="case_box">-->
+   <!--<div class="container">-->
+    <!--<div class="row">-->
+     <!--<div class="col-xs-12 col-sm-12 col-md-12">-->
+      <!--<div class="case_head" data-move-y="-50px">-->
+       <!--<h2>{$Think.lang.success_case}</h2>-->
+       <!--&lt;!&ndash;<p>SUCCESSFUL CASE</p>&ndash;&gt;-->
+      <!--</div>-->
+      <!--<div class="case_list">-->
+       <!--<div class="col-sm-4 col-md-3 col-mm-6 product_img" data-move-y="200px">-->
+        <!--<a href="photo/photo-1-90.html"><img src="__STATIC__/Picture/53086b2ce02c5.jpg" class="img-thumbnail" alt="员工员工01" /></a>-->
+        <!--<p class="product_title"><a href="photo/photo-1-90.html" title="员工员工01">员工员工01</a></p>-->
+       <!--</div>-->
+       <!--<div class="col-sm-4 col-md-3 col-mm-6 product_img" data-move-y="200px">-->
+        <!--<a href="photo/phototest6.html"><img src="__STATIC__/Picture/53086b2ce02c5.jpg" class="img-thumbnail" alt="员工员工02" /></a>-->
+        <!--<p class="product_title"><a href="photo/phototest6.html" title="员工员工02">员工员工02</a></p>-->
+       <!--</div>-->
+       <!--<div class="col-sm-4 col-md-3 col-mm-6 product_img" data-move-y="200px">-->
+        <!--<a href="photo/phototest7.html"><img src="__STATIC__/Picture/53086b2ce02c5.jpg" class="img-thumbnail" alt="测试测试测试相册" /></a>-->
+        <!--<p class="product_title"><a href="photo/phototest7.html" title="测试测试测试相册">测试测试测试相册</a></p>-->
+       <!--</div>-->
+      <!--</div>-->
+     <!--</div>-->
+    <!--</div>-->
+   <!--</div>-->
+  <!--</div>-->
+  <div class="container">
+   <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+     <div class="news_head" data-move-y="-50px">
+      <h2>{$Think.lang.nav_news}</h2>
+      <!--<p>NEWS CENTER</p>-->
+     </div>
+     <ul class="news_index" data-move-y="200px">
+      {volist name="news" id="vo"}
+      <li><span><strong>{$vo['time']|date="d",###}</strong><i>{$vo['time']|date="Y-m",###}</i></span><a href="{:url('news/read',['id'=>$vo['id']])}" title="{$vo.title}">{$vo.title}</a><br /><em>{$vo.abstract}</em></li>
+     {/volist}
+     </ul>
+    </div>
+   </div>
+  </div>
+{if condition="$link"}
+  <div class="link_box">
+   <div class="container">
+    <span class="link_title">{$Think.lang.link}</span>
+    <button id="link_btn" class="glyphicon glyphicon-plus" aria-hidden="true"></button>
+    <span class="link_list">
+     {volist name="link" id="vo"}
+     <a target="_blank" href="{$vo.link}">{$vo.link_name}</a>
+     {/volist}
+    </span>
+   </div>
+  </div>
+{/if}
+  <script src="__STATIC__/Scripts/jquery.smoove.min.js"></script>
+  <script>
+  $('.product_head,.product_img,.advantage_head,.advantage_col,.about_head,.about_content,.case_head,.news_head,.news_index').smoove({offset:'10%'});
+  </script>
+{include file='public/footer'/}
+  <!--客服面板-->
+
+  <script type="text/javascript" src="__STATIC__/Scripts/online.js"></script>
+  <script type="text/javascript">
+
+// var winHeight=200;
+// var timer=null;
+// function show(){
+//     document.getElementById("popWin").style.display="block"; 
+//     timer=setInterval("lift(5)",2);
+// } 
+// function hid(){
+//         timer=setInterval("lift(-5)",2);
+// } 
+// function lift(n) { 
+//     var w=document.getElementById("popWin"); 
+//     var h=parseInt(w.style.height||w.currentStyle.height);
+//     if (h<winHeight && n>0 || h>1 && n<0){
+//         w.style.height=(h+n).toString()+"px"; 
+//     } 
+//     else
+//         {
+//         w.style.display=(n>0?"block":"none");
+//                 clearInterval(timer);
+//     } 
+// } 
+// window.onload=function(){ 
+//         setTimeout("show()",1000);
+// } 
+</script> 
+ </body>
+</html>

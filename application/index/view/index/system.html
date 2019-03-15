@@ -1,0 +1,51 @@
+﻿{include file='public/header'/}
+  <div class="page_bg" style="background: url(__STATIC__/Images/57356d18dfece.jpg) center top no-repeat;"></div>
+  <div class="container">
+   <div class="row">
+    <!-- right -->
+    <div class="col-xs-12 col-sm-8 col-md-9" style="float:right">
+     <div class="list_box">
+      <h2 class="left_h">{if condition="$nav eq 'about'"}{$Think.lang.nav_brief}{else/}{$Think.lang.contact_us}{/if}</h2>
+      <div class="contents">
+       {$content}
+      </div>
+     </div>
+    </div>
+    <!-- left -->
+    <div class="col-xs-12 col-sm-4 col-md-3">
+     {include file='public/nav_system'/}
+     {include file='public/left'/}
+    </div>
+   </div>
+  </div>
+{include file='public/footer'/}
+
+  <script type="text/javascript">
+// var winHeight=200;
+// var timer=null;
+// function show(){
+//     document.getElementById("popWin").style.display="block"; 
+//     timer=setInterval("lift(5)",2);
+// } 
+// function hid(){
+//         timer=setInterval("lift(-5)",2);
+// } 
+// function lift(n) { 
+//     var w=document.getElementById("popWin"); 
+//     var h=parseInt(w.style.height||w.currentStyle.height);
+//     if (h<winHeight && n>0 || h>1 && n<0){
+//         w.style.height=(h+n).toString()+"px"; 
+//     } 
+//     else
+//         {
+//         w.style.display=(n>0?"block":"none");
+//                 clearInterval(timer);
+//     } 
+// } 
+// window.onload=function(){ 
+//         setTimeout("show()",1000);
+// } 
+</script> 
+
+ </body>
+</html>

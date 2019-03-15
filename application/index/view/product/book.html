@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+{include file='public/header'/}
+  <div class="page_bg" style="background: url(__STATIC__/Images/57356d18dfece.jpg) center top no-repeat;"></div>
+  <!-- main -->
+  <div class="container">
+   <div class="row">
+    <!-- right -->
+    <div class="col-xs-12 col-sm-8 col-md-9" style="float:right">
+     <div class="list_box">
+      <h2 class="left_h">{$Think.lang.order}</h2>
+      <div class="feedback">
+       <form id="myform" name="myform" class="form-horizontal" method="post" action="{:url('save_order')}" onsubmit="return CheckJob()">
+        <div class="form-group">
+         <label for="products" class="col-sm-3 control-label">{$Think.lang.proName}：</label>
+         <div class="col-sm-6">
+          <input type="text" name="product" value="{$proName}" class="form-control" id="products" placeholder="必填" />
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="number" class="col-sm-3 control-label">{$Think.lang.bookNum}：</label>
+         <div class="col-sm-6">
+          <input type="number" name="num" class="form-control" id="number" />
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="username" class="col-sm-3 control-label">{$Think.lang.contact}：</label>
+         <div class="col-sm-6">
+          <input type="text" name="name" class="form-control" id="username" placeholder="必填" />
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="company" class="col-sm-3 control-label">{$Think.lang.companyName}：</label>
+         <div class="col-sm-6">
+          <input type="text" name="company" class="form-control" id="company" />
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="add" class="col-sm-3 control-label">{$Think.lang.msg_address}：</label>
+         <div class="col-sm-6">
+          <input type="text" name="address" class="form-control" id="add" />
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="tel" class="col-sm-3 control-label">{$Think.lang.msg_phone}：</label>
+         <div class="col-sm-6">
+          <input type="text" name="tel" class="form-control" id="tel" placeholder="必填" />
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="fax" class="col-sm-3 control-label">{$Think.lang.fax}：</label>
+         <div class="col-sm-6">
+          <input type="text" name="fax" class="form-control" id="fax" />
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="inputEmail" class="col-sm-3 control-label">{$Think.lang.msg_email}：</label>
+         <div class="col-sm-6">
+          <input type="email" name="email" class="form-control" id="inputEmail" />
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="contents" class="col-sm-3 control-label">{$Think.lang.details}：</label>
+         <div class="col-sm-6">
+          <textarea name="contents" class="form-control" rows="3"></textarea>
+         </div>
+        </div>
+        <!--<div class="form-group">-->
+         <!--<label for="code" class="col-xs-12 col-sm-3 control-label">{$Think.lang.msg_verify}：</label>-->
+         <!--<div class="col-xs-7 col-sm-2">-->
+          <!--<input type="text" name="code" class="form-control" id="code" placeholder="验证码" />-->
+         <!--</div>-->
+         <!--<div class="col-xs-2 col-sm-1">-->
+          <!--<img class="codeimg" src="Picture/verify.html" onclick="this.src=this.src+&quot;?&quot;+Math.random()" />-->
+         <!--</div>-->
+        <!--</div>-->
+        <div class="form-group" style="margin-top:30px;">
+         <div class="col-sm-offset-3 col-sm-10">
+          <button type="submit"  class="btn btn-danger page-btn">{$Think.lang.msg_submit}</button>&nbsp;
+          <button type="reset"  class="btn btn-default grey-btn">{$Think.lang.msg_reset}</button>
+         </div>
+        </div>
+        <!--<input type="hidden" name="__hash__" value="eed24c25a6aa366e1e7bb9fbb9e57116_92d86a457b4abef7cedb145c3768d560" />-->
+       </form>
+      </div>
+     </div>
+    </div>
+    <!-- left -->
+    <div class="col-xs-12 col-sm-4 col-md-3">
+     {include file='public/nav_cate'/}
+     {include file='public/left'/}
+    </div>
+   </div>
+  </div>
+  <nav class="navbar navbar-default navbar-fixed-bottom footer_nav">
+   <div class="foot_nav btn-group dropup">
+    <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span class="glyphicon glyphicon-share btn-lg" aria-hidden="true"></span> 分享</a>
+    <div class="dropdown-menu webshare">
+     <!-- JiaThis Button BEGIN --> 
+     <div class="jiathis_style_32x32"> 
+      <a class="jiathis_button_qzone"></a> 
+      <a class="jiathis_button_tsina"></a> 
+      <a class="jiathis_button_tqq"></a> 
+      <a class="jiathis_button_weixin"></a> 
+      <a class="jiathis_button_renren"></a> 
+      <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a> 
+     </div> 
+     <script type="text/javascript" src="Scripts/jia.js" charset="utf-8"></script> 
+     <!-- JiaThis Button END -->
+    </div>
+   </div>
+   <div class="foot_nav">
+    <a href="tel:13933336666"><span class="glyphicon glyphicon-phone btn-lg" aria-hidden="true"></span>手机</a>
+   </div>
+   <div class="foot_nav" aria-hidden="true" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="glyphicon glyphicon-th-list btn-lg"></span>分类
+   </div>
+   <div class="foot_nav">
+    <a id="gototop" href="#"><span class="glyphicon glyphicon-circle-arrow-up btn-lg" aria-hidden="true"></span>顶部</a>
+   </div>
+  </nav>
+{include file='public/footer'/}
+  <!--客服面板-->
+  <link rel="stylesheet" type="text/css" href="Css/online.css" />
+  <!--<div id="cmsFloatPanel">-->
+   <!--<div class="ctrolPanel">-->
+    <!--<a class="service" href="#"></a>-->
+    <!--<a class="message" href="#"></a>-->
+    <!--<a class="qrcode" href="#"></a>-->
+    <!--<a class="arrow" title="返回顶部" href="#"></a>-->
+   <!--</div>-->
+   <!--<div class="servicePanel">-->
+    <!--<div class="servicePanel-inner">-->
+     <!--<div class="serviceMsgPanel">-->
+      <!--<div class="serviceMsgPanel-hd">-->
+       <!--<a href="#"><span>关闭</span></a>-->
+      <!--</div>-->
+      <!--<div class="serviceMsgPanel-bd">-->
+       <!--&lt;!&ndash;在线QQ&ndash;&gt;-->
+       <!--<div class="msggroup">-->
+        <!--<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=593036114&amp;site=qq&amp;menu=yes"><img class="qqimg" src="Picture/984deabfb9724779a6efe336ac0cf42b.gif" alt="QQ在线客服" />技术支持</a>-->
+       <!--</div>-->
+       <!--&lt;!&ndash;在线MSN&ndash;&gt;-->
+       <!--<div class="msggroup">-->
+        <!--<a href="msnim:chat?contact=lankecms@hotmail.com" target="blank"><img class="qqimg" src="Picture/msn.jpg" alt="MSN在线客服" />Lankecms</a>-->
+       <!--</div>-->
+       <!--&lt;!&ndash;在线SKYPE&ndash;&gt;-->
+       <!--<div class="msggroup">-->
+        <!--<a href="skype:lankecms?chat"><img class="qqimg" src="Picture/skype.gif" alt="SKYPE在线客服" />lankecms</a>-->
+       <!--</div>-->
+       <!--&lt;!&ndash;淘宝旺旺&ndash;&gt;-->
+       <!--<div class="msggroup">-->
+        <!--<a target="blank" href="http://amos.im.alisoft.com/msg.aw?v=2&amp;uid=钟若天&amp;site=cntaobao&amp;s=1&amp;charset=utf-8"><img src="Picture/online.aw" alt="点击联系我" /></a>-->
+       <!--</div>-->
+       <!--&lt;!&ndash;旺旺国内版&ndash;&gt;-->
+       <!--<div class="msggroup">-->
+        <!--<a target="_blank" href="http://amos.alicdn.com/msg.aw?v=2&amp;uid=martin7752&amp;site=cnalichn&amp;s=10&amp;charset=UTF-8"><img src="Picture/online.aw" alt="点击联系我" /></a>-->
+       <!--</div>-->
+       <!--&lt;!&ndash;旺旺国际版&ndash;&gt;-->
+       <!--<div class="msggroup">-->
+        <!--<a class="alitalk-link" data-uid="alibabatest01" target="_blank" href="http://amos.alicdn.com/msg.aw?v=2&amp;uid=alibabatest01&amp;site=enaliint&amp;s=22&amp;charset=UTF-8"><img class="qqimg" src="Picture/online.aw" alt="点击联系我" />Lankecms</a>-->
+       <!--</div>-->
+      <!--</div>-->
+      <!--<div class="serviceMsgPanel-ft"></div>-->
+     <!--</div>-->
+     <!--<div class="arrowPanel">-->
+      <!--<div class="arrow02"></div>-->
+     <!--</div>-->
+    <!--</div>-->
+   <!--</div>-->
+   <!--<div class="messagePanel">-->
+    <!--<div class="messagePanel-inner">-->
+     <!--<div class="formPanel">-->
+      <!--<div class="formPanel-bd">-->
+       <!--&lt;!&ndash; JiaThis Button BEGIN &ndash;&gt; -->
+       <!--<div class="jiathis_style_32x32"> -->
+        <!--<a class="jiathis_button_qzone"></a> -->
+        <!--<a class="jiathis_button_tsina"></a> -->
+        <!--<a class="jiathis_button_tqq"></a> -->
+        <!--<a class="jiathis_button_weixin"></a> -->
+        <!--<a class="jiathis_button_renren"></a> -->
+        <!--<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a> -->
+       <!--</div> -->
+       <!--<script type="text/javascript" src="Scripts/jia.js" charset="utf-8"></script> -->
+       <!--&lt;!&ndash; JiaThis Button END &ndash;&gt;-->
+       <!--<a type="button" class="btn btn-default btn-xs" href="#" style="margin: 6px 0px 0px 10px;">关闭</a>-->
+      <!--</div>-->
+     <!--</div>-->
+     <!--<div class="arrowPanel">-->
+      <!--<div class="arrow01"></div>-->
+      <!--<div class="arrow02"></div>-->
+     <!--</div>-->
+    <!--</div>-->
+   <!--</div>-->
+   <!--<div class="qrcodePanel">-->
+    <!--<div class="qrcodePanel-inner">-->
+     <!--<div class="codePanel">-->
+      <!--<div class="codePanel-hd">-->
+       <!--<span style="float:left">用手机扫描二维码</span>-->
+       <!--<a href="#"><span>关闭</span></a>-->
+      <!--</div>-->
+      <!--<div class="codePanel-bd">-->
+       <!--<img src="Picture/529c3fcc09d41.jpg" alt="二维码" />-->
+      <!--</div>-->
+     <!--</div>-->
+     <!--<div class="arrowPanel">-->
+      <!--<div class="arrow01"></div>-->
+      <!--<div class="arrow02"></div>-->
+     <!--</div>-->
+    <!--</div>-->
+   <!--</div>-->
+  <!--</div>-->
+  <!--<script type="text/javascript" src="Scripts/online.js"></script>-->
+  <!--<script type="text/javascript">-->
+<!--var winHeight=200;-->
+<!--var timer=null;-->
+<!--function show(){-->
+    <!--document.getElementById("popWin").style.display="block"; -->
+    <!--timer=setInterval("lift(5)",2);-->
+<!--} -->
+<!--function hid(){-->
+        <!--timer=setInterval("lift(-5)",2);-->
+<!--} -->
+<!--function lift(n) { -->
+    <!--var w=document.getElementById("popWin"); -->
+    <!--var h=parseInt(w.style.height||w.currentStyle.height);-->
+    <!--if (h<winHeight && n>0 || h>1 && n<0){-->
+        <!--w.style.height=(h+n).toString()+"px"; -->
+    <!--} -->
+    <!--else-->
+        <!--{-->
+        <!--w.style.display=(n>0?"block":"none");-->
+                <!--clearInterval(timer);-->
+    <!--} -->
+<!--} -->
+<!--window.onload=function(){ -->
+        <!--setTimeout("show()",1000);-->
+<!--} -->
+<!--</script>-->
+  <script language="javaScript">    function CheckJob()
+  {
+      if (document.myform.product.value.length==""){
+          alert ("产品名称不能为空！");
+          document.myform.product.focus();
+          return false;
+      }
+      if (document.myform.name.value.length==""){
+          alert ("联系人不能为空！");
+          document.myform.name.focus();
+          return false;
+      }
+      if (document.myform.tel.value.length==""){
+          alert ("电话不能为空！");
+          document.myform.tel.focus();
+          return false;
+      }
+  }
+  </script>
+  <div class="hidden-xs" id="popWin" style="width:320px;height:0px;position:absolute;right:1px;bottom:1px;border:1px solid #0066FF;display:none;background:#FFFFFF;padding:1px;z-index:99999;"> 
+   <div style="background-color:#0066FF;color:#FFFFFF;padding:5px"> 
+    <b>官方公告</b> 
+    <span style="color:#FFFFFF;cursor:hand;position:absolute;right:10px;" onclick="hid()">&times;关闭</span> 
+   </div> 
+   <div style="padding:5px;color:red;font-weight:bold;font-size:14px;line-height:24px;">
+    近段时间发现淘宝上，很多不法份子盗版我们的网站系统，盗版网站存在严重漏洞，请客户们谨防上当受骗。现将这些盗版店铺的旺旺名称公布如下：[英杰16899168]、[珍非凡]、[yingchai168]、[咚咚网络]、[021maixiang]、[小铺子大梦想]、[开心小煜煜哦]
+   </div> 
+  </div>
+ </body>
+</html>

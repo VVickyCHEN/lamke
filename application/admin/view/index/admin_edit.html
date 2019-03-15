@@ -1,0 +1,45 @@
+{include file='public/meta'/}
+<title>修改密码</title>
+</head>
+<body>
+<div class="pd-20">
+    <table class="table">
+      <tbody>
+      <input type="hidden" value="{$admin.id}" name="id" id="ids">
+      <tr>
+        <th width="100" class="text-r"><span class="c-red">*</span>账号：</th>
+        <td><input type="text" style="width:200px" class="input-text" value="{$admin.username}" id="username" name="username"></td>
+      </tr>
+      <tr>
+        <th width="100" class="text-r"><span class="c-red">*</span>登录名：</th>
+        <td><input type="text" style="width:200px" class="input-text" value="{$admin.name}" id="name" name="name"></td>
+      </tr>
+
+          <th></th>
+          <td><button class="btn btn-success radius" type="submit" onclick="yy()"><i class="icon-ok"></i> 确定</button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script> 
+<script type="text/javascript" src="__STATIC__/js/H-ui.js"></script> 
+<script type="text/javascript" src="__STATIC__/js/H-ui.admin.js"></script>
+<script>
+function yy() {
+   var id=$("#ids").val();
+   var name=$("#name").val();
+   var username=$("#username").val();
+       $.post('{:url("index/admin_update")}',{id:id,name:name,username:username},function (data) {
+          if(data==1){
+              alert('修改成功')
+              history.back(-2)
+          }else{
+             alert('修改失败')
+          }
+       })
+
+//    alert(id+p1+p2);
+}
+</script>
+</body>
+</html>

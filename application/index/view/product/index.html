@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+{include file='public/header'/}
+  <div class="page_bg" style="background: url(__STATIC__/Images/57356d18dfece.jpg) center top no-repeat;"></div>
+  <!-- main -->
+  <div class="container">
+   <div class="row">
+    <!-- right -->
+    <div class="col-xs-12 col-sm-8 col-md-9" style="float:right">
+     <div class="list_box">
+      <h2 class="left_h">{$cate_title}</h2>
+      <div class="product_list product_list2">
+       {volist name="list" id="vo"}
+       <div class="col-sm-4 col-md-3 col-mm-6 product_img">
+        <a href="{:url('read',['id'=>$vo.id])}">
+         <img src="__ROOT__/uploads/{$vo.simg}" class="img-thumbnail" alt="{$vo.name}" />
+        </a>
+        <p class="product_title">
+         <a href="{:url('read',['id'=>$vo.id])}" title="{$vo.name}">{$vo.name}</a>
+        </p>
+       </div>
+       {/volist}
+      </div>
+      <div class="page"> 
+       {$list->render()}
+      </div>
+     </div>
+    </div>
+    <!-- left -->
+    <div class="col-xs-12 col-sm-4 col-md-3">
+     {include file='public/nav_cate'/}
+     {include file='public/left'/}
+    </div>
+   </div>
+  </div>
+{include file='public/footer'/}
+
+  <script type="text/javascript">
+// var winHeight=200;
+// var timer=null;
+// function show(){
+//     document.getElementById("popWin").style.display="block"; 
+//     timer=setInterval("lift(5)",2);
+// } 
+// function hid(){
+//         timer=setInterval("lift(-5)",2);
+// } 
+// function lift(n) { 
+//     var w=document.getElementById("popWin"); 
+//     var h=parseInt(w.style.height||w.currentStyle.height);
+//     if (h<winHeight && n>0 || h>1 && n<0){
+//         w.style.height=(h+n).toString()+"px"; 
+//     } 
+//     else
+//         {
+//         w.style.display=(n>0?"block":"none");
+//                 clearInterval(timer);
+//     } 
+// } 
+// window.onload=function(){ 
+//         setTimeout("show()",1000);
+// } 
+</script> 
+
+ </body>
+</html>

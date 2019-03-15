@@ -1,0 +1,16 @@
+<div class="left_nav" id="categories">
+    <h2 class="left_h">{$Think.lang.navigation}</h2>
+    <ul class="left_nav_ul" id="firstpane">
+        {volist name="nav_cate" id="vo"}
+        <li><a class="biglink" href="{:url('index',['cate_id'=>$vo.id])}">{$vo.cate_name}</a><span class="menu_head">+</span>
+            <ul class="left_snav_ul menu_body">
+                {volist name="vo.child" id="child"}
+                <li>
+                    <a href="{:url('index',['cate_id'=>$child.id])}">{$child.cate_name}</a>
+                </li>
+                {/volist}
+            </ul>
+        </li>
+        {/volist}
+    </ul>
+</div>

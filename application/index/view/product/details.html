@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+{include file='public/header'/}
+  <div class="page_bg" style="background: url(__STATIC__/Images/57356d18dfece.jpg) center top no-repeat;"></div>
+  <!-- main -->
+  <div class="container">
+   <div class="row">
+    <!-- right -->
+    <div class="col-xs-12 col-sm-8 col-md-9" style="float:right">
+     <div class="list_box">
+      <h2 class="left_h">{$cate_title}</h2>
+      <!-- showpic -->
+      <!--产品图片轮播-->
+      <div class="col-sm-12 col-md-6 showpic_box">
+       <ul class="showpic_flash">
+        {volist name="pro.image" id="vo"}
+        <li><a class="example-image-link" href="__ROOT__/uploads/{$vo}" data-lightbox="example-set" target="_blank"><img class="example-image" src="__ROOT__/uploads/{$vo}" alt="" /></a></li>
+        {/volist}
+       </ul>
+       <div id="pic-page">
+        {volist name="pro.image" id="vo" key="k"}
+        <a data-slide-index="{$k-1}" href="__ROOT__/uploads/{$vo}"><img src="__ROOT__/uploads/{$vo}" alt="" /></a>
+        {/volist}
+       </div>
+      </div>
+      <!-- product_info -->
+      <div class="col-sm-12 col-md-6 proinfo_box">
+       <h1 class="product_h1">{$pro.name}</h1>
+       <ul class="product_info">
+        <li>商品编号：{$pro.goods_num}</li>
+        <li>价格：{$pro.price}￥</li>
+        {if condition="($pro['oldprice'] !='')"}<li>原价：{$pro.oldprice}￥</li>{/if}
+        <li>上架时间：{$pro['time']|date="Y-m-d ",###}</li>
+        <li>产品描述：{$pro.desc}</li>
+        <li>
+         <!--在线订购-->
+         <form id="orderform" method="post" action="{:url('book')}">
+          <input type="hidden" name="id" value="{$pro.id}" />
+          <a href="javascript:orderform.submit();" class="btn btn-primary page-btn">
+           <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span> 在线订购</a>
+         </form>
+        </li>
+       </ul>
+      </div>
+      <div class="product_con">
+      <!--产品详情-->
+       {$pro.details}
+      </div>
+      <!--<div class="point">-->
+       <!--<span class="to_prev col-xs-12 col-sm-6 col-md-6">上一个：<a href="__STATIC__/T09/cn/product/image-processing.html" title="PAPAGO行车记录仪1080P全高清">PAPAGO行车记录仪1080P全高清</a></span>-->
+       <!--<span class="to_next col-xs-12 col-sm-6 col-md-6">下一个：<a href="__STATIC__/T09/cn/product/safe-driving.html" title=" GoSafe650安全驾驶多功能行车记录仪"> GoSafe650安全驾驶多功能行车记录仪</a></span>-->
+      <!--</div>-->
+     </div>
+     <!--<div class="list_related">-->
+      <!--<h2 class="left_h">相关产品</h2>-->
+      <!--<div class="product_list related_list">-->
+       <!--<div class="col-sm-4 col-md-3 col-mm-6 product_img">-->
+        <!--<a href="__STATIC__/T09/cn/product/image-processing.html"><img src="__STATIC__/Picture/5300c3850b71b.jpg" class="img-thumbnail" alt="PAPAGO行车记录仪1080P全高清" /></a>-->
+        <!--<p class="product_title"><a href="__STATIC__/T09/cn/product/image-processing.html" title="PAPAGO行车记录仪1080P全高清">PAPAGO行车记录仪1</a></p>-->
+       <!--</div>-->
+      <!--</div>-->
+     <!--</div>-->
+    </div>
+
+    <!-- left -->
+    <div class="col-xs-12 col-sm-4 col-md-3">
+     {include file='public/nav_cate'/}
+     {include file='public/left'/}
+    </div>
+
+   </div>
+  </div>
+  <nav class="navbar navbar-default navbar-fixed-bottom footer_nav">
+   <div class="foot_nav btn-group dropup">
+    <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span class="glyphicon glyphicon-share btn-lg" aria-hidden="true"></span> 分享</a>
+    <div class="dropdown-menu webshare">
+     <!-- JiaThis Button BEGIN --> 
+     <div class="jiathis_style_32x32"> 
+      <a class="jiathis_button_qzone"></a> 
+      <a class="jiathis_button_tsina"></a> 
+      <a class="jiathis_button_tqq"></a> 
+      <a class="jiathis_button_weixin"></a> 
+      <a class="jiathis_button_renren"></a> 
+      <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a> 
+     </div> 
+     <script type="text/javascript" src="__STATIC__/Scripts/jia.js" charset="utf-8"></script>
+     <script type="text/javascript" src="__STATIC__/Scripts/jia.js" charset="utf-8"></script>
+     <!-- JiaThis Button END -->
+    </div>
+   </div>
+   <div class="foot_nav">
+    <a href="tel:13933336666"><span class="glyphicon glyphicon-phone btn-lg" aria-hidden="true"></span>手机</a>
+   </div>
+   <div class="foot_nav" aria-hidden="true" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="glyphicon glyphicon-th-list btn-lg"></span>分类
+   </div>
+   <div class="foot_nav">
+    <a id="gototop" href="#"><span class="glyphicon glyphicon-circle-arrow-up btn-lg" aria-hidden="true"></span>顶部</a>
+   </div>
+  </nav>
+{include file='public/footer'/}
+  <!--客服面板-->
+  <!--<link rel="stylesheet" type="text/css" href="Css/online.css" />-->
+  <!--<div id="cmsFloatPanel">-->
+   <!--<div class="ctrolPanel">-->
+    <!--<a class="service" href="#"></a>-->
+    <!--<a class="message" href="#"></a>-->
+    <!--<a class="qrcode" href="#"></a>-->
+    <!--<a class="arrow" title="返回顶部" href="#"></a>-->
+   <!--</div>-->
+   <!--<div class="servicePanel">-->
+    <!--<div class="servicePanel-inner">-->
+     <!--<div class="serviceMsgPanel">-->
+      <!--<div class="serviceMsgPanel-hd">-->
+       <!--<a href="#"><span>关闭</span></a>-->
+      <!--</div>-->
+      <!--<div class="serviceMsgPanel-bd">-->
+       <!--&lt;!&ndash;在线QQ&ndash;&gt;-->
+       <!--<div class="msggroup">-->
+        <!--<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=593036114&amp;site=qq&amp;menu=yes"><img class="qqimg" src="__STATIC__/Picture/984deabfb9724779a6efe336ac0cf42b.gif" alt="QQ在线客服" />技术支持</a>-->
+       <!--</div>-->
+       <!--&lt;!&ndash;在线MSN&ndash;&gt;-->
+       <!--<div class="msggroup">-->
+        <!--<a href="msnim:chat?contact=lankecms@hotmail.com" target="blank"><img class="qqimg" src="__STATIC__/Picture/msn.jpg" alt="MSN在线客服" />Lankecms</a>-->
+       <!--</div>-->
+       <!--&lt;!&ndash;在线SKYPE&ndash;&gt;-->
+       <!--<div class="msggroup">-->
+        <!--<a href="skype:lankecms?chat"><img class="qqimg" src="__STATIC__/Picture/skype.gif" alt="SKYPE在线客服" />lankecms</a>-->
+       <!--</div>-->
+       <!--&lt;!&ndash;淘宝旺旺&ndash;&gt;-->
+       <!--<div class="msggroup">-->
+        <!--<a target="blank" href="http://amos.im.alisoft.com/msg.aw?v=2&amp;uid=钟若天&amp;site=cntaobao&amp;s=1&amp;charset=utf-8"><img src="__STATIC__/Picture/online.aw" alt="点击联系我" /></a>-->
+       <!--</div>-->
+       <!--&lt;!&ndash;旺旺国内版&ndash;&gt;-->
+       <!--<div class="msggroup">-->
+        <!--<a target="_blank" href="http://amos.alicdn.com/msg.aw?v=2&amp;uid=martin7752&amp;site=cnalichn&amp;s=10&amp;charset=UTF-8"><img src="__STATIC__/Picture/online.aw" alt="点击联系我" /></a>-->
+       <!--</div>-->
+       <!--&lt;!&ndash;旺旺国际版&ndash;&gt;-->
+       <!--<div class="msggroup">-->
+        <!--<a class="alitalk-link" data-uid="alibabatest01" target="_blank" href="http://amos.alicdn.com/msg.aw?v=2&amp;uid=alibabatest01&amp;site=enaliint&amp;s=22&amp;charset=UTF-8"><img class="qqimg" src="__STATIC__/Picture/online.aw" alt="点击联系我" />Lankecms</a>-->
+       <!--</div>-->
+      <!--</div>-->
+      <!--<div class="serviceMsgPanel-ft"></div>-->
+     <!--</div>-->
+     <!--<div class="arrowPanel">-->
+      <!--<div class="arrow02"></div>-->
+     <!--</div>-->
+    <!--</div>-->
+   <!--</div>-->
+   <!--<div class="messagePanel">-->
+    <!--<div class="messagePanel-inner">-->
+     <!--<div class="formPanel">-->
+      <!--<div class="formPanel-bd">-->
+       <!--&lt;!&ndash; JiaThis Button BEGIN &ndash;&gt; -->
+       <!--<div class="jiathis_style_32x32"> -->
+        <!--<a class="jiathis_button_qzone"></a> -->
+        <!--<a class="jiathis_button_tsina"></a> -->
+        <!--<a class="jiathis_button_tqq"></a> -->
+        <!--<a class="jiathis_button_weixin"></a> -->
+        <!--<a class="jiathis_button_renren"></a> -->
+        <!--<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a> -->
+       <!--</div> -->
+       <!--<script type="text/javascript" src="Scripts/jia.js" charset="utf-8"></script> -->
+       <!--&lt;!&ndash; JiaThis Button END &ndash;&gt;-->
+       <!--<a type="button" class="btn btn-default btn-xs" href="#" style="margin: 6px 0px 0px 10px;">关闭</a>-->
+      <!--</div>-->
+     <!--</div>-->
+     <!--<div class="arrowPanel">-->
+      <!--<div class="arrow01"></div>-->
+      <!--<div class="arrow02"></div>-->
+     <!--</div>-->
+    <!--</div>-->
+   <!--</div>-->
+   <!--<div class="qrcodePanel">-->
+    <!--<div class="qrcodePanel-inner">-->
+     <!--<div class="codePanel">-->
+      <!--<div class="codePanel-hd">-->
+       <!--<span style="float:left">用手机扫描二维码</span>-->
+       <!--<a href="#"><span>关闭</span></a>-->
+      <!--</div>-->
+      <!--<div class="codePanel-bd">-->
+       <!--<img src="__STATIC__/Picture/529c3fcc09d41.jpg" alt="二维码" />-->
+      <!--</div>-->
+     <!--</div>-->
+     <!--<div class="arrowPanel">-->
+      <!--<div class="arrow01"></div>-->
+      <!--<div class="arrow02"></div>-->
+     <!--</div>-->
+    <!--</div>-->
+   <!--</div>-->
+  <!--</div>-->
+  <!--<script type="text/javascript" src="Scripts/online.js"></script>-->
+  <!--<script type="text/javascript">-->
+<!--var winHeight=200;-->
+<!--var timer=null;-->
+<!--function show(){-->
+    <!--document.getElementById("popWin").style.display="block"; -->
+    <!--timer=setInterval("lift(5)",2);-->
+<!--} -->
+<!--function hid(){-->
+        <!--timer=setInterval("lift(-5)",2);-->
+<!--} -->
+<!--function lift(n) { -->
+    <!--var w=document.getElementById("popWin"); -->
+    <!--var h=parseInt(w.style.height||w.currentStyle.height);-->
+    <!--if (h<winHeight && n>0 || h>1 && n<0){-->
+        <!--w.style.height=(h+n).toString()+"px"; -->
+    <!--} -->
+    <!--else-->
+        <!--{-->
+        <!--w.style.display=(n>0?"block":"none");-->
+                <!--clearInterval(timer);-->
+    <!--} -->
+<!--} -->
+<!--window.onload=function(){ -->
+        <!--setTimeout("show()",1000);-->
+<!--} -->
+<!--</script> -->
+  <!--<div class="hidden-xs" id="popWin" style="width:320px;height:0px;position:absolute;right:1px;bottom:1px;border:1px solid #0066FF;display:none;background:#FFFFFF;padding:1px;z-index:99999;"> -->
+   <!--<div style="background-color:#0066FF;color:#FFFFFF;padding:5px"> -->
+    <!--<b>官方公告</b> -->
+    <!--<span style="color:#FFFFFF;cursor:hand;position:absolute;right:10px;" onclick="hid()">&times;关闭</span> -->
+   <!--</div> -->
+   <!--<div style="padding:5px;color:red;font-weight:bold;font-size:14px;line-height:24px;">-->
+    <!--近段时间发现淘宝上，很多不法份子盗版我们的网站系统，盗版网站存在严重漏洞，请客户们谨防上当受骗。现将这些盗版店铺的旺旺名称公布如下：[英杰16899168]、[珍非凡]、[yingchai168]、[咚咚网络]、[021maixiang]、[小铺子大梦想]、[开心小煜煜哦]-->
+   <!--</div> -->
+  <!--</div>-->
+ </body>
+</html>

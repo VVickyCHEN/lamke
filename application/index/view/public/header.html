@@ -1,0 +1,121 @@
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{$system.title}</title>
+    <meta name="keywords" content="{$system.keyword}" />
+    <meta name="description" content="{$system.description}" />
+    <meta name="applicable-device" content="pc,mobile" />
+    <link href="__STATIC__/Css/bootstrap.css" rel="stylesheet" />
+    <link href="__STATIC__/Css/bxslider.css" rel="stylesheet" />
+    <link href="__STATIC__/Css/style.css" rel="stylesheet" />
+    <script src="__STATIC__/Scripts/jquery.min.js"></script>
+    <script src="__STATIC__/Scripts/bxslider.min.js"></script>
+    <script src="__STATIC__/Scripts/common.js"></script>
+    <script src="__STATIC__/Scripts/bootstrap.js"></script>
+    <!--[if lt IE 9]>
+    <script src="__STATIC__/Scripts/html5shiv.min.js"></script>
+    <script src="__STATIC__/Scripts/respond.min.js"></script>
+    <!--[endif]-->
+    <link href="__STATIC__/Css/lightbox.css" rel="stylesheet" />
+    <script src="__STATIC__/Scripts/lightbox.js"></script>
+    <script type="text/javascript">        $(document).ready(function(){
+        $('.showpic_flash').bxSlider({
+            pagerCustom: '#pic-page',
+            adaptiveHeight: true,
+        });
+
+    });
+    </script>
+</head>
+<body>
+<header>
+    <div class="top_menu">
+        <div class="container">
+            <span class="top_name">{$Think.lang.top_name}</span>
+            <div class="top_lang">
+                {$Think.lang.top_lang}：
+                <a title="中文版" lang="cn" class="lang_switch"><img src="__STATIC__/Picture/chinese.gif" alt="中文版" /></a> ∷&nbsp;
+                <a title="English" lang="en" class="lang_switch"><img src="__STATIC__/Picture/english.gif" alt="英文版" /></a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        //语言选择
+        $(".lang_switch").click(function () {
+            var data={'lang':$(this).attr('lang')};//该变量为对象Object {lang: "en"}
+
+            $.get("{:url('index/lang')}",data,function () {
+                location.reload();
+            })
+        })
+    </script>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <a href="http://localhost:8080"><img src="__STATIC__/Picture/53007d5b00000.png" class="logo" alt="蓝科企业网站管理系统PHP版V2.0" /></a>
+            </div>
+            <div id="topsearch" class="col-xs-12 col-sm-4 col-md-4">
+                <form id="searchform" method="get" action="{:url('product/index')}">
+                    <div class="input-group search_group">
+
+                        <input type="text" name="info" class="form-control input-sm" placeholder="{$Think.lang.search}" />
+
+                        <span class="input-group-btn">
+                            <span id="submit_search" onclick="searchform.submit();" title="产品搜索" class="glyphicon glyphicon-search btn-lg" aria-hidden="true">
+                                
+                            </span>
+                        </span>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Fixed navbar -->
+    <nav id="top_nav" class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <span id="small_search" class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                <a class="navbar-brand" href="#">{$Think.lang.nav}</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <!--首页-->
+                    <li><a href="{:url('index/index')}">{$Think.lang.nav_home}</a></li>
+                    <!--简介-->
+                    <li><a href="{:url('index/system',['nav'=>'about'])}">{$Think.lang.nav_brief}</a></li>
+                    <!--产品-->
+                    <li class="dropdown"><a href="{:url('product/index')}">{$Think.lang.nav_pro}</a><a href="product.html" id="app_menudown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-menu-down btn-xs"></span></a>
+                        <ul class="dropdown-menu nav_small" role="menu">
+                            {volist name="category" id="vo"}
+                            <li><a href="{:url('product/index',['cate_id'=>$vo['id']])}">{$vo.cate_name}</a></li>
+                            {/volist}
+                        </ul>
+                    </li>
+                    <!--新闻-->
+                    <li class="dropdown"><a href="{:url('news/index')}">{$Think.lang.nav_news}</a><a href="new.html" id="app_menudown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-menu-down btn-xs"></span></a>
+                        <ul class="dropdown-menu nav_small" role="menu">
+                            {volist name="newsCate" id="vo"}
+                            <li><a href="{:url('news/index',['cate_id'=>$vo.id])}">{$vo.cate_name}</a></li>
+                            {/volist}
+                        </ul>
+                    </li>
+                    <!--&lt;!&ndash;相册&ndash;&gt;-->
+                    <!--<li class="dropdown"><a href="photo.html">{$Think.lang.nav_album}</a><a href="photo.html" id="app_menudown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-menu-down btn-xs"></span></a>-->
+                        <!--<ul class="dropdown-menu nav_small" role="menu">-->
+                            <!--<li><a href="Staff-photo-album.html">{$Think.lang.nav_staff_album}</a></li>-->
+                            <!--<li><a href="Customer-Case.html">{$Think.lang.nav_case_album}</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                    <!--回馈-->
+                    <li><a href="{:url('index/system',['nav'=>'feedback'])}">{$Think.lang.feedback}</a></li>
+                    <!--联系我们-->
+                    <li><a href="{:url('index/system',['nav'=>'contact'])}">{$Think.lang.contact_us}</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+</header>
